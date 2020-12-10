@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+<h:head>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+		
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">		
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link active" href="/">Home</a>
+				
+			</div>
+		</div>
+	</nav>
+	
+</h:head>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card bg-dark my-5">
+				<div class="card-body">
+					<h2 class="card-title text-center text-white">Students List</h2>
+					<h:form>
+						<h:outputLabel for="input" value="Name" styleClass="text-white"/>
+						<h:inputText id="input" value="#{bean.message.text}" />
+						
+
+						<h:commandButton value="Create" action="#{bean.submit}" styleClass="btn btn-info">
+							<f:ajax execute="@form" render="input input_m :table" />
+						</h:commandButton>
+						
+						<h:message for="input" id="input_m" styleClass="text-white"/>
+						
+					</h:form>
+					<h:dataTable id="table" value="#{bean.messages}" var="message" styleClass="text-white">
+						<h:column>#{message.id}</h:column>
+						<h:column>#{message.text}</h:column>
+					</h:dataTable>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</html>
