@@ -11,15 +11,17 @@ import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Message implements Serializable {
+public class Student implements Serializable {
 	
 	private static final long serrialVersionUID = 1L;
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long id;
 	
-	@Column(nullable = false) @Lob
-	private @NotNull String text;
+	@Column(nullable = false) 
+	@Lob
+	@NotNull(message = "Name can't be null")
+	private String name;
 
 	public Long getId() {
 		return id;
@@ -29,13 +31,15 @@ public class Message implements Serializable {
 		this.id = id;
 	}
 
-	public String getText() {
-		return text;
+	public String getName() {
+		return name;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	
 	
 	
 }

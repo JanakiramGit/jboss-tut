@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 	
 <h:head>
 	<link rel="stylesheet"
@@ -34,7 +35,7 @@
 					<h2 class="card-title text-center text-white">Students List</h2>
 					<h:form>
 						<h:outputLabel for="input" value="Name" styleClass="text-white"/>
-						<h:inputText id="input" value="#{bean.message.text}" />
+						<h:inputText id="input" value="#{bean.message.name}" />
 						
 
 						<h:commandButton value="Create" action="#{bean.submit}" styleClass="btn btn-info">
@@ -42,12 +43,13 @@
 						</h:commandButton>
 						
 						<h:message for="input" id="input_m" styleClass="text-white"/>
-						
 					</h:form>
+					
 					<h:dataTable id="table" value="#{bean.messages}" var="message" styleClass="text-white">
 						<h:column>#{message.id}</h:column>
-						<h:column>#{message.text}</h:column>
-					</h:dataTable>
+						<h:column>#{message.name}</h:column>						
+					</h:dataTable>									
+					
 				</div>
 			</div>
 		</div>
